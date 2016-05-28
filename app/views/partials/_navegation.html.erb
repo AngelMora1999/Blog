@@ -1,0 +1,21 @@
+<header class="row center-xs">
+					<div class="submenu">
+				<div class="container">
+					<div class="row center-xs">
+						<nav class="col-xs">
+							<%= link_to "MoraCode", root_path, class: "large-padding" %>
+							<%= link_to "Articulos", articles_path, class: "large-padding" %>
+							<% @categories.each do |category| %>
+								<%= link_to category.name, category %>
+							<%end%>
+							<% if user_signed_in? %>
+								<%= link_to "Cerrar Sessión", destroy_user_session_path, method: :delete, class: "large-padding" %>
+							<%else%>
+								<%= link_to "Iniciar Sessión", new_user_session_path, class: "large-padding" %>
+								<%= link_to "Registrarse", new_user_registration_path, class: "large-padding" %>
+							<%end%>
+						</nav>
+					</div>
+				</div>
+			</div>
+	</header>

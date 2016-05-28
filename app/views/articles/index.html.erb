@@ -1,0 +1,10 @@
+<h3><%= link_to "Nuevo articulo", :action=>"new", :controller=>"articles" %></h3>
+<% @articles.each do |article| %>
+<h1><%= link_to article.title, article %></h1>
+<% unless article.user.nil? %>
+	<p>Escrito por: <%= article.user.email %></p>
+<%end%>
+<h4>
+	<%= article.body %> - <%= link_to "Ver", article %> - <%= link_to "Eliminar", article, method: :delete %>
+</h4>
+<%end%>
